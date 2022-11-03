@@ -34,5 +34,26 @@ namespace WpfClient
                 MessageBox.Show("Нажали ОК");
             }
         }
+
+        private void butShowProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AllProductsView prodView = new AllProductsView();
+            prodView.Show();
+        }
+
+        private void butShowDocuments_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butShowClients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butShowService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

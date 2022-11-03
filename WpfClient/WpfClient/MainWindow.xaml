@@ -13,5 +13,19 @@
         <Label  x:Name="lbUsername"
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="90, 15, 0, 0">...</Label>
+
+        <Button x:Name="butShowProduct" Content="Продукция" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="15,80,0,0" Width="120" Click="butShowProduct_Click" />
+        <Button x:Name="butShowDocuments" Content="Документы" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="15,110,0,0" Width="120" Click="butShowDocuments_Click"/>
+        <Button x:Name="butShowClients" Content="Клиенты" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="15,140,0,0" Width="120" Click="butShowClients_Click"/>
+        <Button x:Name="butShowService" Content="Услуги" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="15,170,0,0" Width="120" Click="butShowService_Click"/>
+
     </Grid>
 </Window>
