@@ -37,6 +37,9 @@ CREATE TABLE IF NOT EXISTS `clients` (
 
 -- Дамп данных таблицы tec_data.clients: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` (`id`, `type`, `firstname`, `surname`, `patronymic`, `company_fullname`, `company_shortname`, `phone`, `company_ogrn`, `company_inn`, `adress`, `mail`) VALUES
+	(1, 'ООО', NULL, NULL, NULL, 'Технологии интегрированных автоматизированных систем', 'ТИАС', '+7 (925) 050-5833', NULL, NULL, '22-й км. Киевского шоссе, корпус Е, офис 502-7', 'inbox@tias.pro'),
+	(2, 'Персона', 'Иван', 'Иванов', 'Иванович', NULL, NULL, '+7 (999) 123-45678', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
 -- Дамп структуры для таблица tec_data.documents
@@ -65,6 +68,11 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 -- Дамп данных таблицы tec_data.products: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` (`id`, `name`, `code`, `type`) VALUES
+	(1, 'Product 1', 'PRD.0001', 'Custom'),
+	(2, 'Product 2', 'PRD.0002', 'Custom'),
+	(3, 'Part 001', 'PRT.0001', 'Custom'),
+	(4, 'Part 003', 'PRT.003', 'Import');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Дамп структуры для таблица tec_data.services
@@ -78,6 +86,13 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 -- Дамп данных таблицы tec_data.services: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` (`id`, `name`, `description`, `cost`) VALUES
+	(1, 'Диагностика ноутбука', NULL, 299.9),
+	(2, 'Диагностика системного блока', NULL, 199.9),
+	(3, 'Подбор комплектующих', NULL, 1500),
+	(4, 'Замена матрицы', NULL, 500),
+	(5, 'Очистка корпуса', NULL, 1000),
+	(6, 'Сборка системного блока', NULL, 1000);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 
 -- Дамп структуры для таблица tec_data.users

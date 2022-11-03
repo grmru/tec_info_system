@@ -43,7 +43,7 @@ namespace WpfClient
 
         private void butShowDocuments_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void butShowClients_Click(object sender, RoutedEventArgs e)
