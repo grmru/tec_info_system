@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Margin="0, 0, 8, 8" Width="100" x:Name="butNew"  Content="Новая запись" />
-            <Button Margin="0, 0, 8, 8" Width="160" x:Name="butEdit" Content="Редактировать запись" />
+            <Button Margin="0, 0, 8, 8" Width="100" x:Name="butNew"  Content="Новая запись" Click="butNew_Click" />
+            <Button Margin="0, 0, 8, 8" Width="160" x:Name="butEdit" Content="Редактировать запись" Click="butEdit_Click" />
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dGrid">

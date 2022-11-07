@@ -27,7 +27,15 @@ namespace WpfClient
         {
             InitializeComponent();
             this.dGrid.ItemsSource = _data;
-            LoadData();
+
+            try
+            {
+                LoadData();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public class ProductRecord
@@ -44,6 +52,7 @@ namespace WpfClient
 
             string connStr = "Server=localhost;Database=tec_data;Uid=root;Pwd=tec;";
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            
             conn.Open();
 
             string sql = "select id, name, code, type from products";
@@ -62,6 +71,16 @@ namespace WpfClient
             }
             r.Close();
             conn.Close();
+        }
+
+        private void butNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
