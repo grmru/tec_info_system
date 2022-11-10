@@ -78,12 +78,19 @@ namespace WpfClient
 
         private void butNew_Click(object sender, RoutedEventArgs e)
         {
-
+            ItemDetailsProductionView dlg = new ItemDetailsProductionView(-1);
+            dlg.ShowDialog();
         }
 
         private void butEdit_Click(object sender, RoutedEventArgs e)
         {
+            if (this.dGrid.SelectedItem == null) { return; }
+            if (!(this.dGrid.SelectedItem is ProductRecord)) { return; }
 
+            ProductRecord selItem = (ProductRecord)this.dGrid.SelectedItem;
+
+            ItemDetailsProductionView dlg = new ItemDetailsProductionView(selItem.Id);
+            dlg.ShowDialog();
         }
 
         private void butExportExcel_Click(object sender, RoutedEventArgs e)

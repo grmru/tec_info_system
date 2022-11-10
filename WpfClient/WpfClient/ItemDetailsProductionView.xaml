@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfClient.ItemDetailsProductionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfClient"
+        mc:Ignorable="d"
+        Title="ItemDetailsProductionView" Height="350" Width="400">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right">Идентификатор:</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtID" IsReadOnly="True"
+                 VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10"></TextBox>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right">Наименование:</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtName" 
+                 VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right">Код:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtCode" 
+                 VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10"></TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0"
+                   VerticalAlignment="Center" HorizontalAlignment="Right">Тип:</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtType" 
+                 VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10"></TextBox>
+
+        <Button Grid.Column="1" Grid.Row="4" x:Name="btnCreate" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Width="70"
+                Click="btnCreate_Click">Создать</Button>
+
+        <Button Grid.Column="1" Grid.Row="4" x:Name="btnSave" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Width="70"
+                Click="btnSave_Click">Сохранить</Button>
+
+    </Grid>
+</Window>
