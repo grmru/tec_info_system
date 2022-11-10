@@ -43,17 +43,20 @@ namespace WpfClient
 
         private void butShowDocuments_Click(object sender, RoutedEventArgs e)
         {
-            
+            AllDocumentsView docsView = new AllDocumentsView();
+            docsView.Show();
         }
 
         private void butShowClients_Click(object sender, RoutedEventArgs e)
         {
-
+            AllClientsView clientsView = new AllClientsView();
+            clientsView.Show();
         }
 
         private void butShowService_Click(object sender, RoutedEventArgs e)
         {
-
+            AllServicesView servicesView = new AllServicesView();
+            servicesView.Show();
         }
     }
 }

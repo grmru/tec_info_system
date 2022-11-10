@@ -128,5 +128,10 @@ namespace WpfClient
                 workbook.Write(stream);
             }
         }
+
+        private void butExportWord_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

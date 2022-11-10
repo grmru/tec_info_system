@@ -23,5 +23,30 @@ namespace WpfClient
         {
             InitializeComponent();
         }
+
+        private void butNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butExportExcel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void butExportWord_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

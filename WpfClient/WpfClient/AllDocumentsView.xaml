@@ -6,7 +6,39 @@
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
         Title="AllDocumentsView" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Margin="0, 0, 8, 8" Width="100" x:Name="butNew"  Content="Новая запись" Click="butNew_Click" />
+            <Button Margin="0, 0, 8, 8" Width="160" x:Name="butEdit" Content="Редактировать запись" Click="butEdit_Click" />
+            <Button Margin="0, 0, 8, 8" Width="160" x:Name="butExportExcel" Content="Экспортировать в Excel" Click="butExportExcel_Click" />
+            <Button Margin="0, 0, 8, 8" Width="160" x:Name="butExportWord" Content="Экспортировать в Word" Click="butExportWord_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <TextBlock HorizontalAlignment="Left" 
+                       VerticalAlignment="Center">Поиск:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Center" 
+                     VerticalContentAlignment="Center" 
+                     Margin="8, 0, 0, 0" 
+                     Width="400"></TextBox>
+            <Button HorizontalAlignment="Right" 
+                    VerticalAlignment="Center" 
+                    Margin="8, 0, 0, 0" 
+                    Width="100" 
+                    x:Name="butSearch"
+                    Content="Поиск" Click="butSearch_Click" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="dGrid">
+
+        </DataGrid>
+
     </Grid>
 </Window>
