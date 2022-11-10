@@ -133,5 +133,10 @@ namespace WpfClient
         {
 
         }
+
+        private void butSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
