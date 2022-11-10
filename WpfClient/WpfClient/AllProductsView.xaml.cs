@@ -15,7 +15,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using NPOI.XSSF.UserModel;
 using System.IO;
 
 namespace WpfClient
@@ -131,7 +130,36 @@ namespace WpfClient
 
         private void butExportWord_Click(object sender, RoutedEventArgs e)
         {
+            NPOI.XWPF.UserModel.XWPFDocument doc = new NPOI.XWPF.UserModel.XWPFDocument();
 
+            NPOI.XWPF.UserModel.XWPFParagraph par = doc.CreateParagraph();
+            par.CreateRun().AppendText("Экспорт данных по продукции на " + DateTime.Now);
+
+            NPOI.XWPF.UserModel.XWPFTable table = doc.CreateTable(_data.Count + 1, 4);
+
+            table.GetRow(0).GetCell(0).SetText("ID");
+            table.GetRow(0).GetCell(1).SetText("Наименование");
+            table.GetRow(0).GetCell(2).SetText("Код");
+            table.GetRow(0).GetCell(3).SetText("Тип");
+
+            table.Width = 5000;
+
+            table.SetColumnWidth(0, 1000);
+            table.SetColumnWidth(1, 1500);
+            table.SetColumnWidth(2, 1000);
+            table.SetColumnWidth(3, 1500);
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                table.GetRow(i + 1).GetCell(0).SetText(_data[i].Id.ToString());
+                table.GetRow(i + 1).GetCell(1).SetText(_data[i].Name);
+                table.GetRow(i + 1).GetCell(2).SetText(_data[i].Code);
+                table.GetRow(i + 1).GetCell(3).SetText(_data[i].Type);
+            }
+
+            FileStream out1 = new FileStream("table.docx", FileMode.Create);
+            doc.Write(out1);
+            out1.Close();
         }
 
         private void butSearch_Click(object sender, RoutedEventArgs e)
