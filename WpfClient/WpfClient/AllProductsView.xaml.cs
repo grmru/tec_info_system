@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Common;
@@ -13,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NPOI.XSSF.UserModel;
+using System.IO;
 
 namespace WpfClient
 {
@@ -81,6 +85,48 @@ namespace WpfClient
         private void butEdit_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void butExportExcel_Click(object sender, RoutedEventArgs e)
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Продукция");
+
+            IRow row = sheet.CreateRow(0);
+
+            ICell cell = row.CreateCell(0);
+            cell.SetCellValue("ID");
+
+            cell = row.CreateCell(1);
+            cell.SetCellValue("Наименование");
+
+            cell = row.CreateCell(2);
+            cell.SetCellValue("Код");
+
+            cell = row.CreateCell(3);
+            cell.SetCellValue("Тип");
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                IRow current_row = sheet.CreateRow(i+1);
+
+                ICell current_cell = current_row.CreateCell(0);
+                current_cell.SetCellValue(_data[i].Id);
+
+                current_cell = current_row.CreateCell(1);
+                current_cell.SetCellValue(_data[i].Name);
+
+                current_cell = current_row.CreateCell(2);
+                current_cell.SetCellValue(_data[i].Code);
+
+                current_cell = current_row.CreateCell(3);
+                current_cell.SetCellValue(_data[i].Type);
+            }
+
+            using (FileStream stream = new FileStream("outfile.xlsx", FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(stream);
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.31" />
+    <PackageReference Include="NPOI.Excel" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
