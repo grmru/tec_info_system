@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using Newtonsoft.Json;
+using NPOI.SS.Formula.Functions;
 
 namespace WpfClient
 {
@@ -141,7 +143,7 @@ namespace WpfClient
 
             using (FileStream stream = new FileStream("outfile.xlsx", FileMode.Create, FileAccess.Write))
             {
-                workbook.Write(stream);
+                workbook.Write(stream, false);
             }
         }
 
@@ -182,6 +184,20 @@ namespace WpfClient
         private void butSearch_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void butExportJson_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(this.dGrid.ItemsSource is BindingList<ProductRecord>))
+            {
+                return;
+            }
+
+            BindingList<ProductRecord> data = (BindingList<ProductRecord>)this.dGrid.ItemsSource;
+
+            string json_string = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+            System.IO.File.WriteAllText("json_export.json", json_string);
         }
     }
 }
