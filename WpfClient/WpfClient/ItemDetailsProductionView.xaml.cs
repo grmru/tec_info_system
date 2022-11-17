@@ -82,7 +82,6 @@ namespace WpfClient
             cmd.Parameters.AddWithValue("@name", this.txtName.Text);
             cmd.Parameters.AddWithValue("@code", this.txtCode.Text);
             cmd.Parameters.AddWithValue("@type", this.txtType.Text);
-            cmd.Parameters.AddWithValue("@id", _id);
 
             try
             {
@@ -95,7 +94,7 @@ namespace WpfClient
 
             conn.Close();
 
-            this.WasUpdated = true;
+            this.WasCreated = true;
 
             this.Close();
         }
