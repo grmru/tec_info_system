@@ -80,6 +80,11 @@ namespace WpfClient
         {
             ItemDetailsProductionView dlg = new ItemDetailsProductionView(-1);
             dlg.ShowDialog();
+            
+            if (dlg.WasCreated)
+            {
+                LoadData();
+            }
         }
 
         private void butEdit_Click(object sender, RoutedEventArgs e)
@@ -91,6 +96,11 @@ namespace WpfClient
 
             ItemDetailsProductionView dlg = new ItemDetailsProductionView(selItem.Id);
             dlg.ShowDialog();
+
+            if (dlg.WasUpdated)
+            {
+                LoadData();
+            }
         }
 
         private void butExportExcel_Click(object sender, RoutedEventArgs e)

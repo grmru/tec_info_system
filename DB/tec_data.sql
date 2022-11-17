@@ -21,7 +21,7 @@ USE `tec_data`;
 -- Дамп структуры для таблица tec_data.clients
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(64) DEFAULT NULL,
   `firstname` varchar(128) DEFAULT NULL,
   `surname` varchar(128) DEFAULT NULL,
@@ -32,10 +32,11 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `company_ogrn` varchar(64) DEFAULT NULL,
   `company_inn` varchar(64) DEFAULT NULL,
   `adress` varchar(256) DEFAULT NULL,
-  `mail` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `mail` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы tec_data.clients: ~0 rows (приблизительно)
+-- Дамп данных таблицы tec_data.clients: ~2 rows (приблизительно)
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
 INSERT INTO `clients` (`id`, `type`, `firstname`, `surname`, `patronymic`, `company_fullname`, `company_shortname`, `phone`, `company_ogrn`, `company_inn`, `adress`, `mail`) VALUES
 	(1, 'ООО', NULL, NULL, NULL, 'Технологии интегрированных автоматизированных систем', 'ТИАС', '+7 (925) 050-5833', NULL, NULL, '22-й км. Киевского шоссе, корпус Е, офис 502-7', 'inbox@tias.pro'),
@@ -45,11 +46,12 @@ INSERT INTO `clients` (`id`, `type`, `firstname`, `surname`, `patronymic`, `comp
 -- Дамп структуры для таблица tec_data.documents
 DROP TABLE IF EXISTS `documents`;
 CREATE TABLE IF NOT EXISTS `documents` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `doc_name` varchar(256) DEFAULT NULL,
   `last_modify_date` datetime DEFAULT NULL,
-  `id_author` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Для учета всех документов в системе';
+  `id_author` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Для учета всех документов в системе';
 
 -- Дамп данных таблицы tec_data.documents: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
@@ -60,17 +62,18 @@ INSERT INTO `documents` (`id`, `doc_name`, `last_modify_date`, `id_author`) VALU
 -- Дамп структуры для таблица tec_data.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `code` varchar(128) DEFAULT NULL,
-  `type` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `type` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы tec_data.products: ~0 rows (приблизительно)
+-- Дамп данных таблицы tec_data.products: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `name`, `code`, `type`) VALUES
 	(1, 'Product 1', 'PRD.0001', 'Custom'),
-	(2, 'Product 2', 'PRD.0002', 'Custom'),
+	(2, 'Product two', 'PRD.0002', 'Custom'),
 	(3, 'Part 001', 'PRT.0001', 'Custom'),
 	(4, 'Part 003', 'PRT.003', 'Import');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
@@ -78,13 +81,14 @@ INSERT INTO `products` (`id`, `name`, `code`, `type`) VALUES
 -- Дамп структуры для таблица tec_data.services
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE IF NOT EXISTS `services` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) DEFAULT NULL,
   `description` varchar(2048) DEFAULT NULL,
-  `cost` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cost` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы tec_data.services: ~0 rows (приблизительно)
+-- Дамп данных таблицы tec_data.services: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
 INSERT INTO `services` (`id`, `name`, `description`, `cost`) VALUES
 	(1, 'Диагностика ноутбука', NULL, 299.9),
@@ -98,7 +102,7 @@ INSERT INTO `services` (`id`, `name`, `description`, `cost`) VALUES
 -- Дамп структуры для таблица tec_data.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `firstname` varchar(128) DEFAULT NULL,
@@ -106,7 +110,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `patronymic` varchar(128) DEFAULT NULL,
   `position` varchar(128) DEFAULT NULL,
   `phone` varchar(64) DEFAULT NULL,
-  `mail` varchar(128) DEFAULT NULL
+  `mail` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы tec_data.users: ~0 rows (приблизительно)

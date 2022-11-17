@@ -23,6 +23,9 @@ namespace WpfClient
     {
         private int _id = -1;
 
+        public bool WasUpdated { get; set; } = false;
+        public bool WasCreated { get; set; } = false;
+
         public ItemDetailsProductionView(int id)
         {
             this._id = id;
@@ -68,12 +71,65 @@ namespace WpfClient
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+            string connStr = "Server=localhost;Database=tec_data;Uid=root;Pwd=tec;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
 
+            conn.Open();
+
+            string sql = "insert into products (name, code, type) values (@name, @code, @type)";
+            MySql.Data.MySqlClient.MySqlCommand cmd =
+                new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@name", this.txtName.Text);
+            cmd.Parameters.AddWithValue("@code", this.txtCode.Text);
+            cmd.Parameters.AddWithValue("@type", this.txtType.Text);
+            cmd.Parameters.AddWithValue("@id", _id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            conn.Close();
+
+            this.WasUpdated = true;
+
+            this.Close();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            string connStr = "Server=localhost;Database=tec_data;Uid=root;Pwd=tec;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
 
+            conn.Open();
+
+            string sql = "update products set name=@name, code=@code, type=@type where id = @id";
+            MySql.Data.MySqlClient.MySqlCommand cmd =
+                new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@name", this.txtName.Text);
+            cmd.Parameters.AddWithValue("@code", this.txtCode.Text);
+            cmd.Parameters.AddWithValue("@type", this.txtType.Text);
+            cmd.Parameters.AddWithValue("@id", _id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            conn.Close();
+
+            this.WasUpdated = true;
+
+            this.Close();
         }
     }
 }
+
